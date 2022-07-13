@@ -1,0 +1,100 @@
+variable "aws_region" {
+  description = "AWS region where the resources will be created"
+
+  type = object({
+    dev  = string
+    prod = string
+  })
+
+  default = {
+    dev  = "us-east-2"
+    prod = "us-east-2"
+  }
+}
+
+variable "aws_profile" {
+  type    = string
+  default = "ad"
+}
+
+variable "db_username" {
+  type    = string
+  default = ""
+}
+
+
+variable "db_password" {
+  type    = string
+  default = ""
+}
+
+variable "vpc_default_id" {
+  type = string
+  default = ""
+}
+
+variable "ecs" {
+  description = "AWS ECS Winston Server Variables"
+
+  type = object({
+    dev = object({
+      fargate_memory               = string
+      certificate_arn              = string
+      route53_zone_id              = string
+      lb_name                      = string
+      vpc_id                       = string
+      lb_security_group_id         = string
+      subnet_public_a_id           = string
+      subnet_private_a_id          = string
+      subnet_public_b_id           = string
+      subnet_private_b_id          = string
+      cluster_name                 = string
+      route53_zone_id              = string
+    })
+
+    prod = object({
+      fargate_memory               = string
+      certificate_arn              = string
+      route53_zone_id              = string
+      lb_name                      = string
+      vpc_id                       = string
+      lb_security_group_id         = string
+      subnet_public_a_id           = string
+      subnet_private_a_id          = string
+      subnet_public_b_id           = string
+      subnet_private_b_id          = string
+      cluster_name                 = string
+      route53_zone_id              = string
+    })
+  })
+
+  default = {
+    dev = {
+      fargate_memory               = ""
+      certificate_arn              = ""
+      route53_zone_id              = ""
+      lb_name                      = ""
+      vpc_id                       = ""
+      lb_security_group_id         = ""
+      subnet_public_a_id           = ""
+      subnet_private_a_id          = ""
+      subnet_public_b_id           = ""
+      subnet_private_b_id          = ""
+      cluster_name                 = ""
+    }
+
+    prod = {
+      fargate_memory               = ""
+      certificate_arn              = ""
+      route53_zone_id              = ""
+      lb_name                      = ""
+      vpc_id                       = ""
+      lb_security_group_id         = ""
+      subnet_public_a_id           = ""
+      subnet_private_a_id          = ""
+      subnet_public_b_id           = ""
+      subnet_private_b_id          = ""
+      cluster_name                 = ""
+    }
+  }
+}

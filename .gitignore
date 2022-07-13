@@ -1,0 +1,7 @@
+.terraform
+terraform.tfstate.backup
+files
+variables.tf
+variables.develop
+variables.production
+terraform.tfstate

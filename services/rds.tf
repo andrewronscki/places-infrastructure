@@ -7,4 +7,5 @@ resource "aws_db_instance" "this" {
   password               = var.db_password
   publicly_accessible    = true
   vpc_security_group_ids = [aws_security_group.rds.id]
+  skip_final_snapshot    = true
 }
